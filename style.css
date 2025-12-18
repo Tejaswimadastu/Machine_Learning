@@ -4,36 +4,36 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Cards */
 .card{
-    background-color: rgb(89, 197, 99);
+    background-color: #ffffff;
     padding: 25px;
     border-radius: 16px;
-    box-shadow: 0 8px 20px  rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     margin-bottom: 25px;
-
 }
+
+/* Headings */
 h1,h2,h3{
-    color: goldenrod;
-
+    color: #22c55e;
 }
-div[data-tested="metric-container"]{
-    background-color:rgb(176, 151, 53);
+
+/* Metrics */
+div[data-testid="metric-container"]{
+    background-color: #ecfdf5;
     border-radius: 16px;
     padding: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
+
+/* Prediction box */
 .prediction-box{
-    background:  linear-gradient(
-        135deg,
-        #92af42,
-        #3fb646
-    );
+    background: linear-gradient(135deg, #22c55e, #16a34a);
     padding: 22px;
     border-radius: 14px;
     text-align: center;
     font-size: 22px;
     font-weight: bold;
-    color: blueviolet;
+    color: #052e16;
     margin-top: 15px;
 }
