@@ -1,10 +1,11 @@
+/* ===== PAGE BACKGROUND ===== */
 .stApp{
     background: linear-gradient(135deg, #c2d36f, #788745);
     min-height: 100vh;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Cards */
+/* ===== CARDS ===== */
 .card{
     background-color: #ffffff;
     padding: 25px;
@@ -13,12 +14,28 @@
     margin-bottom: 25px;
 }
 
-/* Headings */
+/* ===== HEADINGS ===== */
 h1,h2,h3{
-    color: #22c55e;
+    color: #166534;   /* dark green */
 }
 
-/* Metrics */
+/* ===== FORCE TEXT VISIBILITY (IMPORTANT FIX) ===== */
+.card p,
+.card span,
+.card div,
+.card label {
+    color: #1f2937;   /* dark gray text */
+}
+
+/* Streamlit default text */
+.stMarkdown,
+.stText,
+.stDataFrame,
+.stTable {
+    color: #1f2937;
+}
+
+/* ===== METRICS ===== */
 div[data-testid="metric-container"]{
     background-color: #ecfdf5;
     border-radius: 16px;
@@ -26,7 +43,16 @@ div[data-testid="metric-container"]{
     box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
-/* Prediction box */
+div[data-testid="metric-value"]{
+    color: #166534;
+    font-weight: bold;
+}
+
+div[data-testid="metric-label"]{
+    color: #374151;
+}
+
+/* ===== PREDICTION BOX ===== */
 .prediction-box{
     background: linear-gradient(135deg, #22c55e, #16a34a);
     padding: 22px;
