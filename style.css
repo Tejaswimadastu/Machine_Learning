@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* App background handled in app.py */
 
 /* Card */
@@ -33,8 +34,73 @@ div[data-testid="metric-container"]{
     background: linear-gradient(135deg,#2563eb,#1e40af);
     color: white;
     padding: 18px;
+=======
+/* ===== PAGE BACKGROUND ===== */
+.stApp{
+    background: linear-gradient(135deg, #c2d36f, #788745);
+    min-height: 100vh;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== CARDS ===== */
+.card{
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    margin-bottom: 25px;
+}
+
+/* ===== HEADINGS ===== */
+h1,h2,h3{
+    color: #166534;   /* dark green */
+}
+
+/* ===== FORCE TEXT VISIBILITY (IMPORTANT FIX) ===== */
+.card p,
+.card span,
+.card div,
+.card label {
+    color: #1f2937;   /* dark gray text */
+}
+
+/* Streamlit default text */
+.stMarkdown,
+.stText,
+.stDataFrame,
+.stTable {
+    color: #1f2937;
+}
+
+/* ===== METRICS ===== */
+div[data-testid="metric-container"]{
+    background-color: #ecfdf5;
+    border-radius: 16px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+div[data-testid="metric-value"]{
+    color: #166534;
+    font-weight: bold;
+}
+
+div[data-testid="metric-label"]{
+    color: #374151;
+}
+
+/* ===== PREDICTION BOX ===== */
+.prediction-box{
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    padding: 22px;
+>>>>>>> 6de10dee5d2bb17a41aef798f8947d6d5f614ab0
     border-radius: 14px;
     text-align: center;
     font-size: 22px;
     font-weight: bold;
+<<<<<<< HEAD
+=======
+    color: #052e16;
+    margin-top: 15px;
+>>>>>>> 6de10dee5d2bb17a41aef798f8947d6d5f614ab0
 }
