@@ -1,0 +1,40 @@
+/* App background handled in app.py */
+
+/* Card */
+.card{
+    background: rgba(255,255,255,0.96);
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    margin-bottom: 25px;
+}
+
+/* Headings */
+h1, h3{
+    color: #111827;
+}
+
+/* Paragraph */
+p{
+    color: #374151;
+    font-size: 15px;
+}
+
+/* Metric cards */
+div[data-testid="metric-container"]{
+    background: rgba(249,250,251,0.95);
+    padding: 16px;
+    border-radius: 14px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Prediction box */
+.prediction-box{
+    background: linear-gradient(135deg,#2563eb,#1e40af);
+    color: white;
+    padding: 18px;
+    border-radius: 14px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
