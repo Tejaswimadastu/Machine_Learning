@@ -15,10 +15,12 @@ model_path = os.path.join(BASE_DIR, "churn_model.pkl")
 
 model = joblib.load(model_path)
 
-model = joblib.load("churn_model.pkl")
+
 
 # Load dataset (for dashboard visuals)
-df = pd.read_csv("WA_Fn-UseC_-Telco-Customer-Churn.csv")
+csv_path = os.path.join(BASE_DIR, "WA_Fn-UseC_-Telco-Customer-Churn.csv")
+df = pd.read_csv(csv_path)
+
 df["Churn"] = df["Churn"].map({"Yes": 1, "No": 0})
 
 st.set_page_config(page_title="Telco Churn Dashboard", layout="wide")
