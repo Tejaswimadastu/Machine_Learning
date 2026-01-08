@@ -7,6 +7,14 @@ import seaborn as sns
 from sklearn.metrics import confusion_matrix, accuracy_score
 
 # Load model
+import os
+import joblib
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE_DIR, "churn_model.pkl")
+
+model = joblib.load(model_path)
+
 model = joblib.load("churn_model.pkl")
 
 # Load dataset (for dashboard visuals)
