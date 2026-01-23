@@ -12,7 +12,12 @@ st.write("Enter news text to check whether it is REAL or FAKE")
 
 @st.cache_data
 def load_model():
-    data = pd.read_csv("fake_or_real_news.csv")
+    #data = pd.read_csv("fake_or_real_news.csv")
+    import os
+    BASE_DIR = os.path.dirname(__file__)
+    file_path = os.path.join(BASE_DIR, "fake_or_real_news.csv")
+    data = pd.read_csv(file_path)
+
     data['label'] = data['label'].map({'REAL': 0, 'FAKE': 1})
 
     def clean(text):
