@@ -4,8 +4,11 @@ import re
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
 
 st.title("📰 Fake News Detection System")
+st.write("Enter news text to check whether it is REAL or FAKE")
 
 @st.cache_data
 def load_model():
@@ -22,21 +25,35 @@ def load_model():
     X = data['text']
     y = data['label']
 
-    X_train, _, y_train, _ = train_test_split(
-        X, y, test_size=0.25, random_state=42
-    )
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     tfidf = TfidfVectorizer(stop_words='english', max_df=0.7)
     X_train = tfidf.fit_transform(X_train)
+    X_test = tfidf.transform(X_test)
 
-    model = MultinomialNB(alpha=1.0)
-    model.fit(X_train, y_train)
+    # Naive Bayes
+    nb_model = MultinomialNB()
+    nb_model.fit(X_train, y_train)
 
-    return tfidf, model
+    # Logistic Regression
+    lr_model = LogisticRegression(max_iter=1000)
+    lr_model.fit(X_train, y_train)
 
-tfidf, model = load_model()
+    # Accuracy
+    nb_acc = accuracy_score(y_test, nb_model.predict(X_test))
+    lr_acc = accuracy_score(y_test, lr_model.predict(X_test))
+
+    return tfidf, nb_model, lr_model, nb_acc, lr_acc
+
+tfidf, nb_model, lr_model, nb_acc, lr_acc = load_model()
+
+st.write("### Model Accuracy")
+st.write("Naive Bayes Accuracy:", nb_acc)
+st.write("Logistic Regression Accuracy:", lr_acc)
 
 user_input = st.text_area("Enter News Text", height=200)
+
+model_choice = st.selectbox("Choose Model", ["Naive Bayes", "Logistic Regression"])
 
 if st.button("Check News"):
     if user_input.strip() == "":
@@ -44,9 +61,19 @@ if st.button("Check News"):
     else:
         clean_input = re.sub(r'[^a-z\s]', '', user_input.lower())
         vector = tfidf.transform([clean_input])
-        prediction = model.predict(vector)
 
-        if prediction[0] == 1:
+        if model_choice == "Naive Bayes":
+            model = nb_model
+        else:
+            model = lr_model
+
+        prediction = model.predict(vector)[0]
+        prob = model.predict_proba(vector)[0]
+
+        st.write("Real Probability:", prob[0])
+        st.write("Fake Probability:", prob[1])
+
+        if prediction == 1:
             st.error("🚨 This news is FAKE")
         else:
             st.success("✅ This news is REAL")
