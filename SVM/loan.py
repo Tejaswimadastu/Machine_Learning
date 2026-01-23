@@ -96,7 +96,11 @@ st.write(
 # -----------------------------
 @st.cache_data
 def load_and_prepare_data():
-    df = pd.read_csv("loan2.csv")   # make sure loan.csv is in same folder
+    import os
+
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    df = pd.read_csv(os.path.join(BASE_DIR, "loan2.csv"))
+  # make sure loan.csv is in same folder
 
     # Encode target
     df['Loan_Status'] = df['Loan_Status'].map({'Y': 1, 'N': 0})
