@@ -1,10 +1,5 @@
 # Machine_Learning
 
-Ohhh got you, Teju! 😄
-You want a GENERAL README for your entire Machine Learning learning journey – covering Supervised, Unsupervised & Reinforcement Learning.
-Here’s a clean, professional one for your GitHub / record 👍.
-
-🤖 Machine Learning – Complete Learning Repository
 📌 Overview
 
 This repository contains my learning and implementations in Machine Learning, covering:
